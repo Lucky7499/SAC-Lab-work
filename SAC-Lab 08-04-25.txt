@@ -1,0 +1,222 @@
+08-04-2025
+PANDAS
+Work with following functions in Series and Data frames using Pandas
+ 
+Function 	Description
+df.sort_values('col', ascending=True) Sorts by a column
+df.sort_values(['col1', 'col2'])  Sorts by multiple columns
+df.set_index('col')   	Sets a column as index
+df.reset_index()      	Resets index
+ 
+import pandas as pd
+data = {
+    'Name':['Lucky','Amar','Srikar','Jatin','Akhil'],
+    'age' : [21,20,19,25,23],
+    'score' : [95,80,65,70,90]
+}
+#Creating data frame
+df=pd.DataFrame(data)
+print("Actual DataFrame: ")
+print(df)
+
+Output :
+Actual DataFrame: 
+     Name  age  score
+0   Lucky   21     95
+1    Amar   20     80
+2  Srikar   19     65
+3   Jatin   25     70
+4   Akhil   23     90
+
+
+#1.Sorting by column
+df_sorted_age=df.sort_values('age',ascending=True)
+print("sorted age\n",df_sorted_age)
+
+
+
+Output :
+
+sorted age
+      Name  age  score
+2  Srikar   19     65
+1    Amar   20     80
+0   Lucky   21     95
+4   Akhil   23     90
+3   Jatin   25     70
+
+
+
+
+
+
+
+
+
+
+#2.Sorted by multiple columns
+df_sorted_multi=df.sort_values(['age','score'])
+print("sorted by age, then score: \n",df_sorted_multi)
+
+
+Output :
+sorted by age, then score: 
+      Name  age  score
+2  Srikar   19     65
+1    Amar   20     80
+0   Lucky   21     95
+4   Akhil   23     90
+3   Jatin   25     70
+
+
+
+
+
+
+
+
+
+
+
+#3.set a column as index
+df_indexed = df.set_index('Name')
+print("set 'Name' as index :\n ",df_indexed)
+
+
+Output :
+
+set 'Name' as index :
+          age  score
+Name              
+Lucky    21     95
+Amar     20     80
+Srikar   19     65
+Jatin    25     70
+Akhil    23     90
+
+
+
+
+
+
+
+
+
+
+
+#4.Reset index
+df_reset = df.reset_index()
+print("Reset index : \n",df_reset)
+
+
+Output :
+
+Reset index : 
+    index    Name  age  score
+0      0   Lucky   21     95
+1      1    Amar   20     80
+2      2  Srikar   19     65
+3      3   Jatin   25     70
+4      4   Akhil   23     90
+
+
+
+
+
+15.  Grouping & Aggregation
+ 
+Function 	Description
+df.groupby('col').mean()     	Groups by column and calculates mean
+df.groupby('col').agg(['mean', 'sum']) Performs multiple aggregations
+df.pivot_table(values='col1', index='col2') 	Creates a pivot table
+ 
+ 
+import pandas as pd
+data = {
+    'Name':['Lucky','Amar','Srikar','Jatin','Akhil'],
+    'age' : [21,20,19,25,23],
+    'score' : [95,80,65,70,90]
+}
+#Creating data frame
+df=pd.DataFrame(data)
+print("Actual DataFrame: ")
+print(df)
+
+Output :
+Actual DataFrame: 
+     Name  age  score
+0   Lucky   21     95
+1    Amar   20     80
+2  Srikar   19     65
+3   Jatin   25     70
+4   Akhil   23     90
+
+
+
+
+
+
+
+#1.groups by columns and calculate mean
+
+mean_age=df.groupby('Name').mean()
+print("Mean age by Name\n :",mean_age)
+
+
+Output :
+
+
+Mean age by Name
+ :          age  score
+Name               
+Akhil   23.0   90.0
+Amar    20.0   80.0
+Jatin   25.0   70.0
+Lucky   21.0   95.0
+Srikar  19.0   65.0
+
+
+
+
+
+#2.performs multiple aggregations
+
+agg_age=df.groupby('Name').agg({'age':['mean','sum']})
+print("Mean and sum of age by name :\n",agg_age)
+
+
+Output :
+
+Mean and sum of age by name :
+          age    
+        mean sum
+Name            
+Akhil   23.0  23
+Amar    20.0  20
+Jatin   25.0  25
+Lucky   21.0  21
+Srikar  19.0  19
+
+
+
+
+
+
+
+#3.create a pivot tabel
+
+pivot = df.pivot_table(values='age',index='Name')
+print("pivot table - average salary by Name : \n",pivot)
+
+
+Output :
+
+pivot table - average salary by Name : 
+          age
+Name        
+Akhil   23.0
+Amar    20.0
+Jatin   25.0
+Lucky   21.0
+Srikar  19.0
+

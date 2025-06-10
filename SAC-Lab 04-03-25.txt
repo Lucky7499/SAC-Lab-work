@@ -1,0 +1,536 @@
+Sac Lab Word File
+
+04-03-25
+
+1. Array Creation & Properties
+np.array() ? Creates a NumPy array (1D, 2D, 3D)
+#import numpy as np
+#arr=np.array[[1,3,2,4],[4,2,3,1]]
+#arr
+import numpy as np
+#create a 3D array with specified values
+arr=np.array([[[1,3,2],[4,2,3]],[[7,8,9],[10,11,12]]])
+arr.size
+arr.dtype
+output
+dtype('int32')
+
+
+
+.shape ? Returns shape (dimensions) of an array
+
+
+
+
+import numpy as np
+
+# Create a 3D array with specified values
+arr = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+print(arr)
+arr.shape
+
+output
+
+[[[ 1  2  3]
+  [ 4  5  6]]
+
+ [[ 7  8  9]
+  [10 11 12]]]
+
+
+Out[11]:
+(2, 2, 3)
+
+
+
+
+
+
+
+.size ? Returns total number of elements
+
+import numpy as np
+
+# Create a 3D array with specified values
+arr = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+arr.size
+
+output
+12
+
+.dtype ? Returns data type of elements
+arr.dtype
+
+
+Output
+dtype('int64')
+
+.ndim ? Returns number of dimensions
+arr.ndim
+
+Output
+3
+
+
+np.identity(n) ? Creates an identity matrix of size n × n
+np.identity(3)
+
+Output
+array([[1., 0., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.]])
+
+np.eye(n, m) ? Creates a diagonal identity-like matrix
+np.eye(4,4)
+
+Output
+array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.]])
+
+
+2. Array Indexing & Slicing
+•	arr[index] ? Accesses element at a given index
+
+import numpy as np
+arr=np.array([[1,2,4,5],[1,2,4,5]])
+arr[0]
+
+Output
+array([1, 2, 4, 5])
+
+
+•	arr[row, col] ? Accesses element in a 2D array
+
+import numpy as np
+arr=np.array([[1,2,4,5],[1,2,4,5]])
+arr[0][0:2]
+
+Output
+array([1, 2])
+
+•	arr[start:stop] ? Slices a 1D array
+
+import numpy as np
+arr=np.array([1,2,4,5]) 
+arr[0:3]
+
+Output
+array([1, 2, 4])
+
+•	arr[row, :] ? Slices entire row in 2D array
+
+import numpy as np
+arr=np.array([[1,2,4,5],[1,2,4,5]])
+arr[0,:]
+
+Output
+array([1, 2, 4, 5])
+
+•	arr[:, col] ? Slices entire column in 2D array
+
+import numpy as np
+arr=np.array([[1,2,4,5],[1,2,4,5]])
+arr[:,3]
+
+Output
+array([5, 5])
+
+
+3. Reshaping & Flattening
+•	.reshape(new_shape) ? Changes shape of an array
+import numpy as np
+arr=np.array([[1,2,4,5],[1,2,4,5]])
+arr.reshape(4,2)
+
+Output
+array([[1, 2],
+       [4, 5],
+       [1, 2],
+       [4, 5]])
+
+
+
+•	.flatten() ? Converts a multi-dimensional array into 1D
+
+import numpy as np
+arr=np.array([[1,2,4,5],[1,2,4,5]])
+arr.flatten()
+
+Output
+array([1, 2, 4, 5, 1, 2, 4, 5])
+
+
+4. Mathematical Operations
+Element-wise Operations
+np.square(arr) ? Squares each element
+import numpy as np
+arr=np.array([[1,2,4,3],[1,2,3,5]])
+np.square(arr)
+Output
+array([[ 1,  4, 16,  9],
+       [ 1,  4,  9, 25]])
+
+
+
+
+np.power(arr, n) ? Raises each element to power n
+import numpy as np
+arr=np.array([[1,2,4,3],[1,2,3,5]])
+np.power(arr,2)
+
+Output
+array([[ 1,  4, 16,  9],
+       [ 1,  4,  9, 25]], dtype=int32)
+
+np.sqrt(arr) ? Computes square root element-wise
+import numpy as np
+arr=np.array([[1,2,4,3],[1,2,3,5]])
+np.sqrt(arr)
+
+Output
+array([[1.        , 1.41421356, 2.        , 1.73205081],
+       [1.        , 1.41421356, 1.73205081, 2.23606798]])
+
+
+arr + value ? Adds a scalar to each element
+import numpy as np
+arr=np.array([[1,2,4,3],[1,2,3,5]])
+arr+3
+
+Output
+array([[4, 5, 7, 6],
+       [4, 5, 6, 8]])
+
+
+arr * value ? Multiplies each element by a scalar
+
+import numpy as np
+arr=np.array([[1,2,4,3],[1,2,3,5]])
+arr*3
+
+
+Output
+array([[ 3,  6, 12,  9],
+       [ 3,  6,  9, 15]])
+
+
+Statistical & Aggregation Functions
+•	np.sum(arr) ? Computes sum of elements
+import numpy as np
+arr=np.array([[1,2,4,5],[1,2,4,5]])
+np.sum(arr)
+
+Output
+np.int64(24)
+
+•	np.mean(arr) ? Computes mean (average)
+import numpy as np
+arr=np.array([[1,2,4,5],[1,2,4,5]])
+np.mean(arr)
+
+Output
+ np.float64(3.0)
+
+•	np.median(arr) ? Computes median
+import numpy as np
+arr=np.array([1,2,16,5]) 
+np.median(arr)
+
+Output
+  np.float64(3.5)
+
+•	np.std(arr) ? Computes standard deviation
+import numpy as np
+arr=np.array([1,2,16,5]) np.std(arr)
+
+Output
+np.float64(5.958187643906492)
+
+•	np.var(arr) ? Computes variance
+
+import numpy as np
+arr=np.array([[1,2,16,5],[1,2,4,5]])
+np.var(arr)
+
+Output
+np.float64(21.25)
+
+•	np.max(arr) ? Returns max value
+import numpy as np
+arr=np.array([[1,2,16,5],[1,2,4,5]])
+np.max(arr)
+Output
+np.int64(16)
+
+
+•	np.min(arr) ? Returns min value
+import numpy as np
+arr=np.array([[1,2,16,5],[1,2,4,5]])
+np.min(arr)
+
+Output
+np.int64(1)
+•	np.prod(arr) ? Computes product of all elements
+import numpy as np
+arr=np.array([[1,2,16,5],[1,2,4,5]])
+np.prod(arr)
+
+Output
+np.int64(6400)
+•	np.percentile(arr, q) ? Computes qth percentile
+import numpy as np
+arr=np.array([[1,2,16,5],[1,2,4,5]])
+np.percentile(arr,5)
+
+Output
+np.float64(1.0)
+•	np.mode(arr) ? Computes mode (not directly in NumPy, use scipy.stats.mode)
+import numpy as np
+from scipy import stats
+arr = np.array([1, 2, 2, 3, 3, 3, 4, 5])
+mode_result = stats.mode(arr)
+print(mode_result)
+
+Output
+3
+
+5. Linear Algebra Functions
+.T ? Transpose of a matrix
+import numpy as np
+a=np.array([1,2,3])
+a.T
+
+Output
+array([1, 2, 3])
+
+
+np.linalg.inv(A) ? Inverse of a matrix A
+import numpy as np
+a=np.array([[1,2],[1,16]])
+p=np.linalg.inv(a)
+print(p)
+
+Output
+[[ 1.14285714 -0.14285714]
+ [-0.07142857  0.07142857]]
+
+
+
+
+
+np.linalg.det(A) ? Determinant of matrix A
+import numpy as np
+a=np.array([[1,2],[1,16]])
+p=np.linalg.det(a)
+print(p)
+
+Output
+13.999999999999996
+
+
+
+np.linalg.matrix_rank(A) ? Rank of matrix A
+import numpy as np
+a=np.array([[1,2],[1,16]])
+p=np.linalg.matrix_rank(a)
+print(p)
+
+Output
+2
+
+
+np.dot(A, B) ? Matrix multiplication
+import numpy as np
+a=np.array([[1,2],[1,16]])
+b=np.array([[2,6],[6,2]])
+p=np.dot(a,b)
+print(p)
+
+Output
+[[14 10]
+ [98 38]]
+
+np.linalg.eig(A) ? Computes eigenvalues and eigenvectors
+import numpy as np
+a=np.array([[1,2],[1,16]])
+b=np.array([[2,6],[6,2]])
+p=np.linalg.eig(a)
+print(p)
+
+Output
+(array([ 0.86783124, 16.13216876]), array([[-0.99782355, -0.13102927],
+       [ 0.06594055, -0.9913785 ]]))
+
+np.linalg.svd(A) ? Singular Value Decomposition (SVD)
+import numpy as np
+a=np.array([[1,2],[1,16]])
+b=np.array([[1,2],[1,16]])
+p=np.linalg.svd(a)
+print(p)
+
+Output
+SVDResult(U=array([[ 0.12772583,  0.99180951],
+       [ 0.99180951, -0.12772583]]), S=array([16.16322245,  0.86616391]), Vh=array([[ 0.06926437,  0.99759834],
+       [ 0.99759834, -0.06926437]]))
+
+6. Stacking & Concatenation
+
+np.vstack((A, B)) ? Vertically stacks arrays
+import numpy as np
+a=np.array([[1,2],[1,16]])
+b=np.array([[1,2],[1,16]])
+np.vstack((a,b ))
+
+Output
+array([[ 1,  2],
+       [ 1, 16],
+       [ 1,  2],
+       [ 1, 16]])
+
+
+np.hstack((A, B)) ? Horizontally stacks arrays
+import numpy as np
+a=np.array([[1,2],[1,16]])
+b=np.array([[1,2],[1,16]])
+np.hstack((a,b ))
+
+Output
+array([[ 1,  2,  1,  2],
+       [ 1, 16,  1, 16]])
+
+7. Broadcasting
+arr + scalar ? Adds scalar to entire array
+import numpy as np
+a=np.array([[1,2],[1,16]])
+a+1
+
+Output
+array([[ 2,  3],
+       [ 2, 17]])
+
+arr2D + arr1D ? Adds 1D array to 2D array (broadcasting)
+import numpy as np
+a=np.array([[1,2],[1,16]])
+b=np.array([1,2])
+a+b
+Output
+ array([[ 2,  4],
+       [ 2, 18]])
+
+
+
+9. Comparison Functions
+np.greater(arr1, arr2) ? Element-wise greater-than comparison
+import numpy as np
+a=np.array([[1,2],[1,16]])
+b=np.array([[2,6],[6,2]])
+p=np.greater(a,b)
+print(p)
+
+Output
+[[False False]
+ [False  True]]
+
+
+np.less(arr1, arr2) ? Element-wise less-than comparison
+import numpy as np
+a=np.array([[1,2],[1,16]])
+b=np.array([[2,6],[6,2]])
+p=np.less(a,b)
+print(p)
+
+Output
+[[ True  True]
+ [ True False]]
+
+
+
+
+np.equal(arr1, arr2) ? Element-wise equality comparison
+import numpy as np
+a=np.array([[1,2],[1,16]])
+b=np.array([[2,6],[6,2]])
+p=np.equal(a,b)
+print(p)
+
+Output
+[[False False]
+ [False False]]
+
+
+10. Bitwise Operations
+np.bitwise_and(arr1, arr2) ? Bitwise AND operation
+import numpy as np
+a=np.array([[1,2],[1,16]])
+b=np.array([[2,6],[6,2]])
+p=np.bitwise_and(a,b)
+print(p)
+
+Output
+[[0 2]
+ [0 0]]
+np.bitwise_or(arr1, arr2) ? Bitwise OR operation
+import numpy as np
+a=np.array([[1,2],[1,16]])
+b=np.array([[2,6],[6,2]])
+p=np.bitwise_or(a,b)
+print(p)
+
+Output
+[[ 3  6]
+ [ 7 18]]
+
+
+np.bitwise_xor(arr1, arr2) ? Bitwise XOR operation
+import numpy as np
+a=np.array([[1,2],[1,16]])
+b=np.array([[2,6],[6,2]])
+p=np.bitwise_xor(a,b)
+print(p)
+
+Output
+[[ 3  4]
+ [ 7 18]]
+
+
+
+11. File Reading & Writing
+•	np.savetxt(filename, arr, delimiter=",") ? Saves array to a text file
+arr=([[20,60,30,40,50,],[20,60,30,40,50,]])
+filename=r"d:\array.txt"
+np.savetxt(filename, arr, delimiter=",")
+print("file saved")
+
+Output
+ file saved
+
+
+•	np.loadtxt(filename, delimiter=",") ? Loads data from a text file
+
+arr=([[20,60,30,40,50,],[20,60,30,40,50,]])
+filename=r"d:\array.txt"
+np.loadtxt(filename, delimiter=",")
+
+Output
+array([[20., 60., 30., 40., 50.],
+       [20., 60., 30., 40., 50.]])
+
+•	np.save(filename, arr) ? Saves array to a binary .npy file
+arr=([[20,60,30,40,50,],[20,60,30,40,50,]])
+filename=r"d:\array.txt"
+np.save(filename,arr)
+print("file saved")
+
+Output
+file saved
+•	np.load(filename) ? Loads an array from a .npy file
+arr=([[20,60,30,40,50,],[20,60,30,40,50,]])
+filename=r"d:\array.txt"
+p=np.load(filename)
+print(p)
+
+Output
+[ [20 60 30 40 50]
+[20 60 30 40 50] ]

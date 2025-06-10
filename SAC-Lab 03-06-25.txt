@@ -1,0 +1,120 @@
+03-06-25
+
+17.Statistical analysis
+
+a.Compute the mean,median,standard deviation of a numpy array
+
+import numpy as np
+arr = np.array([1,2,3,4,5])
+mean = np.mean(arr)
+median= np.median(arr)
+std_dev= np.std(arr)
+
+print("Mean=",  mean)
+print("Median=", median)
+print("Standard deviation=",
+      std_dev)
+
+Output:
+
+Mean= 3.0
+Median= 3.0
+Standard deviation= 1.4142135623730951
+
+
+
+
+
+
+b.Find the percentile scores of a numpy array
+
+
+
+import numpy as np
+arr = np.array([10,20,30,40,50])
+percentiles=np.percentile(arr,[20,40,60])
+
+print("20th percentile=",percentiles[0])
+print("40th percentile=",percentiles[1])
+print("60th percentile=",percentiles[2])
+
+Output:
+
+20th percentile= 18.0
+40th percentile= 26.0
+60th percentile= 34.0
+
+
+c.Compute the Euclidean distance between two  arrays
+
+import numpy as np
+
+a = np.array ([1,2])
+b = np.array ([3,4])
+distance = np.linalg.norm(a - b)
+print("Euclidean distance =",distance)
+
+Output:
+
+Euclidean distance = 2.8284271247461903
+
+
+
+
+
+d. Find the correlation between two columns of a numpy array
+
+import numpy as np
+
+data = np.array([[1,2],
+                [3,4],
+                [5,6],
+                [7,8]])
+corr_matrix = np.corrcoef(data[:,0],data[:,1])
+correlation = corr_matrix[0,1]
+print("Correlation between column 0 and column 1=",correlation)
+
+
+Output:
+
+Correlation between column 0 and column 1= 1.0
+
+
+
+e. Probabilistic sampling in numpy
+
+import numpy as np
+
+
+data = [ 'A' ,'B' ,'C' ]
+probabilities = [ 0.1 ,0.3 ,0.6]
+samples = np.random.choice(data, size=6, replace=True, p=probabilities)
+print("Samples=",samples)
+
+Output:
+
+Samples= ['C' 'B' 'C' 'A' 'B' 'B']
+
+
+f.compute the moving average of a numpy array
+
+import numpy as np
+
+arr = np.array([1,2,3,4,5,6])
+window_size = 3
+moving_avg = np.convolve(arr,np.ones(window_size)/window_size,mode='valid')
+print("Moving Average=",moving_avg)
+
+Output:
+
+Moving Average= [2. 3. 4. 5.]
+f.      	Compute the moving average of a numpy array
+import numpy as np
+
+data = np.array([1,2,3,4,5,6,7,8,9])
+window_size = 3
+moving_avg = np.convolve(data,np.ones(window_size)/window_size,mode='valid')
+print(moving_avg)
+
+Output:
+[2. 3. 4. 5. 6. 7. 8.]

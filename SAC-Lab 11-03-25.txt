@@ -1,0 +1,57 @@
+11-03-2025
+12. BOOLEAN OPERATIONS:
+
+•  np.all()
+import numpy as np
+a=np.all([True,False,True,True])
+print(a)
+Output
+False
+
+• np.any(arr1)
+import numpy as np
+a=np.any([True,False,True,True])
+print(a)
+
+Output
+True
+
+• np.where()
+a=np.array([-1,0.5,25])
+print(np.where(a<0,"High","Low"))
+
+
+Output
+['High' 'Low' 'Low']
+
+
+13. Perform the following sorting methods
+
+• np.sort(arr1)
+
+import numpy as np
+a=np.array([70,20,10,40,50,30,70,80])
+print(np.sort(a))
+
+Output
+[10 20 30 40 50 70 70 80]
+
+
+• np.argsort(arr1)
+import numpy as np
+a=np.array([70,20,10,40,50,30,70,80])
+print(np.argsort(a))
+
+Output
+[2 1 5 3 4 0 6 7]
+
+
+• np.unique(arr1)
+
+import numpy as np
+a=np.array([70,20,10,20,50,30,70,80])
+print(np.unique(a))
+
+
+Output
+[10 20 30 50 70 80]

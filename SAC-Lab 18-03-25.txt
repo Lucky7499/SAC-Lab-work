@@ -1,0 +1,116 @@
+
+ Sac Lab Word File
+
+18-03-25
+
+
+1.Installing pandas
+
+import panda as pd
+
+
+2. work with series with different datatypes
+
+import pandas as pd
+data=[1,2,34]
+s1=pd.Series(data)
+print(s1)
+
+output
+0     1
+1     2
+2    34
+dtype: int64
+
+
+
+import pandas as pd
+data=[1,2,34,'Lucky','6,5',3.4]
+s1=pd.Series(data)
+print(s1)
+
+Output
+
+0        1
+1        2
+2       34
+3    Lucky
+4      6,5
+5      3.4
+dtype: object
+
+3.create a dataframe with indexing like name,age,city and insert the values
+import pandas as pd
+data={
+'Name':['Lucky','Akhil','Srikar'],
+'age':[21,18,20],
+'city':['Jalna','Hyderabad','Kamareddy']
+    
+}
+s1=pd.DataFrame)
+print (s1)
+
+Output
+     Name  age       city
+0   Lucky   21      Jalna
+1   Akhil   18  Hyderabad
+2  Srikar   20  Kamareddy
+
+
+4.work with following functions: :   head, tail, shape, info, describe, columns, index
+
+import pandas as pd
+data={
+'Name':['Lucky','Akhil','Srikar'],
+'age':[21,18,20],
+'pin':[5,10,15]
+    
+}
+s1=pd.DataFrame(data)
+print (s1.describe())
+
+Output
+             age   pin
+count   3.000000   3.0
+mean   19.666667  10.0
+std     1.527525   5.0
+min    18.000000   5.0
+25%    19.000000   7.5
+50%    20.000000  10.0
+75%    20.500000  12.5
+max    21.000000  15.0
+
+HEAD
+
+import pandas as pd
+data={
+'Name':['Lucky','Akhil','Srikar'],
+'age':[21,18,20],
+'pin':[5,10,15]
+    
+}
+s1=pd.DataFrame(data)
+print (s1.head())
+
+Output
+     Name  age  pin
+0   Lucky   21    5
+1   Akhil   18   10
+2  Srikar   20   15
+
+
+SHAPE
+
+import pandas as pd
+data={
+'Name':['Lucky','Akhil','Srikar'],
+'age':[21,18,20],
+'pin':[5,10,15]
+    
+}
+s1=pd.DataFrame(data)
+print (s1.shape)
+
+Output
+
+(3, 3)

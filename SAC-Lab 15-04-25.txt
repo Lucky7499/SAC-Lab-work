@@ -1,0 +1,68 @@
+15-04-25
+16. Perform the following Operations on Multiple arrays
+a.        	Stack two arrays vertically
+b.     	Stack two arrays horizontally
+c.     	Get the common items between two python numpy arrays
+d.     	Remove from one array those items that exist in another
+e.     	Get the positions where elements of two arrays match
+import numpy as np
+
+a = np.array([3,4,5,6])
+b = np.array([1,2,6,8])
+
+
+#1.stack two arrays vertically
+v_stack = np.vstack((a,b))
+print("Vertically stacked:\n",v_stack)
+
+
+Output :
+
+Vertically stacked:
+ [[3 4 5 6]
+ [1 2 7 8]]
+
+
+#2.stack two arrays horizontally
+h_stack = np.hstack((a,b))
+print("Horizontal stacked:\n",h_stack)
+
+Output :
+
+Horizontal stacked:
+ [3 4 5 6 1 2 7 8]
+
+#3. get the common items between two arrays
+common_items = np.intersect1d(a,b)
+print("common items: \n",common_items)
+
+Output :
+
+
+common items: 
+ [6]
+
+#4.Remove from one array those items that exists in other
+unique_in_a = np.setdiff1d(a, b)
+print ("Items in 'a' but not in 'b':\n",unique_in_a)
+
+Output :
+Items in 'a' but not in 'b':
+ [3 4 5]
+
+
+
+
+
+#5.get the positions where elements of two arrays match
+
+a = np.array([3,4,5,6])
+b = np.array([3,2,6,8])
+
+matching_positions = np.where(a == b)
+print("matching positions :\n",matching_positions)
+
+output
+
+matching positions :
+ (array([0]),)

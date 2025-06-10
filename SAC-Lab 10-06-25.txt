@@ -1,0 +1,60 @@
+10-06-25
+
+Data Aggregation and Group Operations in Pandas
+1.Dataset Creation
+import pandas as pd
+#sample dataframe
+data = {
+    'Department':['Sales','Sales','HR','HR','IT','IT','Sales','IT'],
+    'Employee':['Lucky','Jatin','Amar','Sawan','Srikar','Prateek','Akhil','Sai'],
+    'Salary':[50000,60000,45000,47000,70000,72000,52000,73000],
+    'Bonus':[5000,6000,4500,4700,7000,7200,5200,7300]
+}
+df = pd.DataFrame(data)
+print("Original Data frame\n",df)
+
+Output:
+Original Data frame
+   Department Employee  Salary  Bonus
+0      Sales    Lucky   50000   5000
+1      Sales    Jatin   60000   6000
+2         HR     Amar   45000   4500
+3         HR    Sawan   47000   4700
+4         IT   Srikar   70000   7000
+5         IT  Prateek   72000   7200
+6      Sales    Akhil   52000   5200
+7         IT      Sai   73000   7300
+
+2.Selecting Subset of columns
+
+subset = df[['Department','Salary']]
+print("selecting the group of columns\n",subset)
+
+Output:
+selecting the group of columns
+   Department  Salary
+0      Sales   50000
+1      Sales   60000
+2         HR   45000
+3         HR   47000
+4         IT   70000
+5         IT   72000
+6      Sales   52000
+7         IT   73000
+ #3.Grouping Operations
+
+#Grouping with Dictionary
+dept_mapping={'Sales':'Buisness','HR':'Support','IT':'Technical'}
+df['Category']=df['Department'].map(dept_mapping)
+grouped_by_category=df.groupby('Category').sum()
+print("category by Group\n",grouped_by_category)
+
+ Output:
+category by Group
+            Salary  Bonus
+Category                
+Buisness   162000  16200
+Support     92000   9200
+Technical  215000  21500
+
+                                                   
